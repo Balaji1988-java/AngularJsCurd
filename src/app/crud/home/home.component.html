@@ -1,0 +1,30 @@
+<div>
+    <h1>My Products</h1>
+    <button type="button" [routerLink]="['/crud/create/']" >Create new product</button>
+    <table > 
+        <caption> Product Details </caption>
+        <thead>
+            <tr style="background-color:#00FF00">
+                <th>Sr.No</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th> <br/>                          
+                <th>Action</th> <br/>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products" >
+                <td style="text-align:center">{{product.id}}</td>
+                <td style="text-align:left">{{product.name}}</td> 
+                <td>{{product.description}}</td> 
+                <td style="text-align:center">{{product.price}}</td>
+                <td style="text-align:center">{{product.quantity}}</td> <br/>
+                <td>
+                    <button type="button" [routerLink]="['/crud/update/', product.id]">Update</button>
+                    <button type="button" (click)="crudService.delete(product.id)">Remove</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
